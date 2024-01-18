@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calculadora',
@@ -10,7 +11,7 @@ import { IonicModule, NavController } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class CalculadoraPage implements OnInit {
+export class CalculadoraPage {
 
   asignatura: string = '';
   codigo: string = '' ;
@@ -21,12 +22,12 @@ export class CalculadoraPage implements OnInit {
   porcentaje2: number = 0;
   porcentaje3: number = 0;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(private router: Router) {}
 
   calcularPromedio() {
     if (this.validarDatos()) {
       const promedio = (this.nota1 * this.porcentaje1 + this.nota2 * this.porcentaje2 + this.nota3 * this.porcentaje3) / 100;
-      this.navCtrl.navigateForward(`/resultado/${this.asignatura}/${this.codigo}/${promedio}`);
+      this.router.navigate([`/resultado/${this.asignatura}/${this.codigo}/${promedio}`]);
     } else {
       console.log("Error: Datos no válidos");
     }
@@ -38,10 +39,6 @@ export class CalculadoraPage implements OnInit {
     const sumaPorcentajes = this.porcentaje1 + this.porcentaje2 + this.porcentaje3 === 100;
 
     return notasValidas && porcentajesValidos && sumaPorcentajes;
-  }
-
-
-  ngOnInit() {
   }
 
 }
