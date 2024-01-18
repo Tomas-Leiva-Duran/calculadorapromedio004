@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class ResultadoPage implements OnInit {
+export class ResultadoPage {
 
   asignatura: string = '';
   codigo: string = '';
@@ -36,10 +36,6 @@ export class ResultadoPage implements OnInit {
       this.notaExamen = (1 - this.promedio * porcentajePromedio) / porcentajeExamenDecimal;
       this.notaExamen = Math.max(0, Math.min(10, this.notaExamen)); // Asegura que la nota esté entre 0 y 10
     }
-  }
-
-
-  ngOnInit() {
   }
 
 }
