@@ -1,0 +1,7 @@
+{
+  "name": "calculadorapromedio004",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
