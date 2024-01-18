@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculadora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Asignatura</ion-label>
+    <ion-input [(ngModel)]="asignatura"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Código</ion-label>
+    <ion-input [(ngModel)]="codigo"></ion-input>
+  </ion-item>
+  <div>
+  <ion-item>
+    <ion-label position="floating">Nota 1</ion-label>
+    <ion-input [(ngModel)]="nota1" type="number" min="0" max="7"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Porcentaje 1 (%)</ion-label>
+    <ion-input [(ngModel)]="porcentaje1" type="number" min="0" max="100"></ion-input>
+  </ion-item>
+</div>
+<div>
+  <ion-item>
+    <ion-label position="floating">Nota 2</ion-label>
+    <ion-input [(ngModel)]="nota2" type="number" min="0" max="7"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Porcentaje 2 (%)</ion-label>
+    <ion-input [(ngModel)]="porcentaje2" type="number" min="0" max="100"></ion-input>
+  </ion-item>
+</div>
+<div>
+  <ion-item>
+    <ion-label position="floating">Nota 3</ion-label>
+    <ion-input [(ngModel)]="nota3" type="number" min="0" max="7"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Porcentaje 3 (%)</ion-label>
+    <ion-input [(ngModel)]="porcentaje3" type="number" min="0" max="100"></ion-input>
+  </ion-item>
+</div>
+
+  <ion-button expand="full" (click)="calcularPromedio()">Calcular</ion-button>
+</ion-content>

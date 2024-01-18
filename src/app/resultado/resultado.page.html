@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Resultado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Asignatura: {{ asignatura }}</ion-label>
+      <ion-label>Código: {{ codigo }}</ion-label>
+      <ion-label>Promedio: {{ promedio }}</ion-label>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-label position="floating">Porcentaje del Examen (%)</ion-label>
+    <ion-input [(ngModel)]="porcentajeExamen"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="calcularNotaExamen()">Calcular Nota Examen</ion-button>
+
+  <ion-card *ngIf="notaExamen">
+    <ion-card-content>
+      <ion-label>Nota necesaria en el examen: {{ notaExamen }}</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
