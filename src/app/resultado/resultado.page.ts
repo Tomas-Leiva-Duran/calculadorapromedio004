@@ -34,7 +34,7 @@ export class ResultadoPage {
 
       // Calcula la nota necesaria en el examen
       this.notaExamen = (1 - this.promedio * porcentajePromedio) / porcentajeExamenDecimal;
-      this.notaExamen = Math.max(0, Math.min(10, this.notaExamen)); // Asegura que la nota esté entre 0 y 10
+      this.notaExamen = Math.max(0, Math.min(7, this.notaExamen)); // Asegura que la nota esté entre 0 y 7
     }
   }
 
