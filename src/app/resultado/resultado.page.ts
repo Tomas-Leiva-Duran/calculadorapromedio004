@@ -20,12 +20,20 @@ export class ResultadoPage {
   porcentajeExamen: number = 0;
 
   constructor(private route: ActivatedRoute) {
+    this.asignatura = localStorage.getItem('asignatura') ?? '';
+    this.codigo = localStorage.getItem('codigo') ?? '';
+    this.promedio = Number(localStorage.getItem('promedio')) ?? 0;
+  }
+
+  /*
+  constructor(private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.asignatura = params['asignatura'];
       this.codigo = params['codigo'];
       this.promedio = params['promedio'];
     });
   }
+  */
 
   calcularNotaExamen() {
     if (this.porcentajeExamen) {
@@ -34,7 +42,7 @@ export class ResultadoPage {
 
       // Calcula la nota necesaria en el examen
       this.notaExamen = (1 - this.promedio * porcentajePromedio) / porcentajeExamenDecimal;
-      this.notaExamen = Math.max(0, Math.min(7, this.notaExamen)); // Asegura que la nota esté entre 0 y 7
+      this.notaExamen = Math.max(1, Math.min(7, this.notaExamen)); // Asegura que la nota esté entre 1 y 7
     }
   }
 

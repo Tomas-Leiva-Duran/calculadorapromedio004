@@ -27,7 +27,20 @@ export class CalculadoraPage {
   calcularPromedio() {
     if (this.validarDatos()) {
       const promedio = (this.nota1 * this.porcentaje1 + this.nota2 * this.porcentaje2 + this.nota3 * this.porcentaje3) / 100;
-      this.router.navigate([`/resultado/${this.asignatura}/${this.codigo}/${promedio}`]);
+
+      localStorage.setItem('promedio', promedio.toString());
+      localStorage.setItem('asignatura', this.asignatura);
+      localStorage.setItem('codigo', this.codigo);
+      localStorage.setItem('nota1', this.nota1.toString());
+      localStorage.setItem('nota2', this.nota2.toString());
+      localStorage.setItem('nota3', this.nota3.toString());
+      localStorage.setItem('porcentaje1', this.porcentaje1.toString());
+      localStorage.setItem('porcentaje2', this.porcentaje2.toString());
+      localStorage.setItem('porcentaje3', this.porcentaje3.toString());
+      
+
+      this.router.navigate(['resultado']);
+
     } else {
       console.log("Error: Datos no válidos");
     }
